@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Authentication
+{% endblock title %}
+
+{% block content %}
+<!-- Page Title Section -->
+<div class="row page-title page-title-about">
+    <div class="container">
+        <h2><i class="fa fa-sign-in"></i>Login</h2>
+    </div>
+</div>
+
+<!-- contact row -->
+<div class="row contact-row">
+    <div class="container">
+        <div class="col-lg-3"></div>
+        <form method="post" class="contact-form col-sm-6 col-lg-6">
+            {% csrf_token %}
+            <div class="col-xs-12 text-center">
+                <h3>LOGIN TO YOUR ACCOUNT</h3>
+
+                {% for message in messages %}
+                <div id="toast">
+                    <div class="alert alert-info" role="alert"><i>{{ message }}</i></div>
+                </div>
+                {% endfor %}
+
+            </div>
+            <div class="col-xs-12">
+                <label>USERNAME</label>
+                <input type="text" name="username" placeholder="Enter Username" required
+                       class="form-control">
+            </div>
+            <div class="col-xs-12">
+                <label>PASSWORD</label>
+                <input type="password" name="password" placeholder="Enter Password" required
+                       class="form-control">
+            </div>
+            <div class="col-xs-12 pull-left" style="margin-bottom:20px">
+                <button type="submit" class="submit-contact-form"><i
+                        class="fa fa-paper-plane"></i> LOGIN
+                </button>
+            </div>
+        </form>
+        <div class="col-lg-3"></div>
+    </div>
+</div>
+{% endblock content %}

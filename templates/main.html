@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="">
+    <title>{% block title %}{% endblock title %} | CV Verification System</title>
+
+    <!-- Styles -->
+    <link href="{% static 'dashboard/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'dashboard/css/style.css' %}" rel="stylesheet" media="screen">
+
+    <!-- Fonts -->
+    <link href="{% static 'dashboard/fonts/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" media="screen">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/6.1.4/adapter.min.js" integrity="sha512-FZkQmTcqSzV2aNpWszYA/pPUISx6QjI60lKGwnIsfNFCGqUB7gcobQ9StH3hQCKFN92md3fCaXLzzSpoFat57A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.47/vue.cjs.min.js" integrity="sha512-GAZdoqaWBVt41E9aFD6m/Ng1bttD+LdVCMKIZ9CK9NrGvElI6RzUlAtoV+Yew+s1oOSOwZFUSiGSOwhXMTINsQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+
+  <!--  jQuer cdn  -->
+	<script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+    <style>
+        .certificate {
+            width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            border: 2px solid #000;
+            text-align: center;
+        }
+        .qr-code {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="row dashboard-top-nav">
+        <div class="col-sm-7 logo">
+            <h5><i class="fa fa-book"></i>CV Verification System</h5>
+        </div>
+        <div class="col-sm-5 notification-area">
+            <ul class="top-nav-list">
+                <li class="user">
+                    {% if user.username != "" %}
+                    <a href="{% url 'MySite:logout' %}"><i class="fa fa-power-off"></i> LOGOUT</a>
+                    {% else %}
+                    <a href="{% url 'MySite:home' %}"><i class="fa fa-home"></i> HOME</a>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="parent-wrapper" id="outer-wrapper">
+        {% if user.username != "" %}
+        <!-- SIDE MENU -->
+        <div class="sidebar-nav-wrapper" id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li>
+                    <a href="{% url 'Dashboard:upload_certificate' %}"><i class="fa fa-book menu-icon"></i> UPLOAD CERTIFICATE</a>
+                </li>
+                <li>
+                    <a href="{% url 'Dashboard:verify_certificate' %}"><i class="fa fa-book menu-icon"></i> VERIFY CERTIFICATE</a>
+                </li>
+            </ul>
+        </div>
+        {% endif %}
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content" id="content-wrapper">
+            {% block content %}
+            {% endblock content %}
+
+            {% if user.username != "" %}
+            <div class="menu-togggle-btn">
+                <a href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars"></i></a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{% static 'dashboard/js/jQuery_v3_2_0.min.js' %}"></script>
+    <script src="{% static 'dashboard/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'dashboard/js/js.js' %}"></script>
+    <script>
+    $(function(){
+        {% block ajax %}
+        {% endblock ajax %}
+    })
+    </script>
+    <script>
+        {% block javascript %}
+        {% endblock javascript %}
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block title %}
+View Certificate
+{% endblock title %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12 clear-padding-xs">
+            <h5 class="page-title"><i class="fa fa-code"></i>VIEW CERTIFICATE</h5>
+            <div class="section-divider"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 clear-padding-xs">
+            <div class="certificate">
+                <h1>Certificate of Achievement</h1>
+                <p>This is to certify that</p>
+                <h2>{{ cert.last_name }}, {{ cert.first_name }} {{ cert.middle_name }}</h2>
+                <p>has successfully completed the {{ cert.certificate_type }} course</p>
+                <h3>{{ cert.discipline }}</h3>
+                <p>Presented on {{ cert.graduation_date }}</p>
+                <div class="qr-code">
+                    <img src="/media/{{ cert.image }}" alt="QR Code" width="150px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

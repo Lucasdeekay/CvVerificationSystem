@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="">
+    <title>{% block title %}{% endblock title %} | CV Verification System</title>
+
+    <!-- Styles -->
+    <link href="{% static 'mysite/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'mysite/css/owl.carousel.min.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'mysite/css/owl.theme.default.min.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'mysite/css/style.css' %}" rel="stylesheet" media="screen">
+
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <link href="{% static 'mysite/fonts/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" media="screen">
+
+</head>
+<body>
+    <div class="row nav-row trans-menu">
+        <div class="container nav-container">
+            <nav id="pathshalaNavbar" class="navbar navbar-default" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#pathshalaNavbarCollapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="">CV Verification System</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="pathshalaNavbarCollapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{% url 'MySite:home' %}"><i class="fa fa-home"></i>HOME</a></li>
+                        <li><a href="{% url 'MySite:about' %}"><i class="fa fa-info-circle"></i>ABOUT</a></li>
+                        <li><a href="{% url 'MySite:contact' %}"><i class="fa fa-phone-square"></i>CONTACT US</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </nav>
+        </div>
+    </div>
+
+    {% block content %}
+    {% endblock content %}
+
+
+    <!-- Scripts -->
+    <script src="{% static 'mysite/js/jQuery_v3_2_0.min.js' %}"></script>
+    <script src="{% static 'mysite/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'mysite/plugins/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'mysite/js/js.js' %}"></script>
+
+</body>
+</html>

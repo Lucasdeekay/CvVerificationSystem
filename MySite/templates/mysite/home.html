@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block content %}
+<div class="row">
+    <div id="homeSlider" class="carousel slide" data-ride="carousel">
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="{% static 'mysite/img/slider/slide6.jpg' %}" alt="slide2">
+                <div class="carousel-caption">
+                    <h4><i class="fa fa-star-o"></i>WE ARE BEST<i class="fa fa-star-o"></i></h4>
+                    <h2>GIVE <span><i class="fa fa-rocket"></i>BOOST</span> TO YOUR COMPANY</h2>
+                    <p>We are <strong>HERE</strong> provides best service <br/> to you</p>
+                    <a href="{% url 'MySite:login' %}" style="margin: 10px"><i class="fa fa-paper-plane"></i>UPLOAD
+                        CERTIFICATE</a>
+                    <a href="{% url 'Dashboard:verify_certificate' %}" style="margin: 10px"><i
+                            class="fa fa-paper-plane"></i>VERIFY CERTIFICATE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- What we offer section -->
+<div class="row section-row dark-row">
+    <div class="container">
+        <div class="section-row-header-left">
+            <h6><i class="fa fa-star-o"></i>WE ARE BEST<i class="fa fa-star-o"></i></h6>
+            <h1>WHAT IS A CERTIFICATE VERIFICATION SYSTEM?</h1>
+            <p>Certificate verification is a critical process that ensures the authenticity and validity of educational
+                and professional credentials. In today's digital age, the implementation of a robust certificate
+                verification system has become indispensable to combat fraud and protect the integrity of
+                certificates.</p>
+            <p>Certificate verification systems serve as vital tools in establishing the legitimacy and credibility of
+                certificates. These systems play a crucial role in mitigating the risks associated with counterfeit
+                certificates, unauthorized claims, and fraudulent activities. By providing a reliable means to verify
+                the authenticity of certificates, these systems instill confidence among employers, academic
+                institutions, and other stakeholders in making informed decisions regarding candidates' qualifications
+                and competencies.</p>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
