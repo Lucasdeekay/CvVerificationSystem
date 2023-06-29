@@ -38,11 +38,11 @@
 <body>
     <div class="row dashboard-top-nav">
         <div class="col-sm-7 logo">
-            <h5><i class="fa fa-book"></i>CV Verification System</h5>
+            <h5><img src="{% static 'dashboard/images/logo.png' %}" alt="logo" style="width:30px; margin: 0px 5px;">CV Verification System</h5>
         </div>
         <div class="col-sm-5 notification-area">
             <ul class="top-nav-list">
-                <li class="user">
+                <li class="user" style="margin-top: 15px;">
                     {% if user.username != "" %}
                     <a href="{% url 'MySite:logout' %}"><i class="fa fa-power-off"></i> LOGOUT</a>
                     {% else %}
