@@ -58,6 +58,7 @@ Verify Certificate
 </div>
 {% endblock content %}
 
+
 {% block ajax %}
 
 $("#video").hide();
@@ -77,6 +78,7 @@ function displayScanner(){
         Instascan.Camera.getCameras().then(function(cameras) {
 
           if (cameras.length > 0) {
+            $("#video").show();
             scanner.start(cameras[0]);
           } else {
             alert('No cameras found.');
@@ -86,8 +88,7 @@ function displayScanner(){
         });
 
         scanner.addListener('scan', function(content) {
-            $("#video").show();
-            $("#cert_no").val = content;
+            $("#cert_no").val(content);
             $("#video").hide();
         });
     })
