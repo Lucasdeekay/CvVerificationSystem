@@ -58,7 +58,7 @@ class AuthLoginView(View):
 class LogoutView(View):
 
     # Add a method decorator to make sure user is logged in
-    # @method_decorator(login_required())
+    @method_decorator(login_required())
     # Create get function
     def get(self, request):
         # logout user
